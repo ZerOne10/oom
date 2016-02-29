@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Ball : IBall
+    class Fussball : IBall
     {
 
         public string m_Color { get; set; }
         public int m_Preis { get; set; }
         public int m_Size { get; set; }
 
-        public Ball()
+        public Fussball()
         {
             m_Preis = 1;
-            m_Size = 5;
+            m_Size = 4;
         }
-        public Ball(int preis)
+        public Fussball(int preis)
         {
             m_Preis = preis;
-            m_Size = 1;
+            m_Size = 4;
         }
 
         #region IBall Implementation
@@ -33,8 +33,8 @@ namespace Task2
         {
             m_Color = color;
             m_Preis = preis;
-            m_Size = size;
-            Console.WriteLine("Attribute überschrieben!");
+            m_Size = 4;
+            Console.WriteLine("Attribute überschrieben - Größe ist fixiert!");
         }
         #endregion
     }

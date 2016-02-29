@@ -10,13 +10,23 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            var a = new Ball();
+            var items = new IBall[]
+            {
+                new Ball(10),
+                new Ball(20),
+                new Ball(30),
+                new Ball(40),
+                new Fussball(10),
+                new Fussball(20),
+                new Fussball(30),
+                new Fussball(40)
+            };
+            Random rnd = new Random();
 
-            Console.WriteLine("Size of ball is " + a.size);
-
-            a.SetColor("black");
-
-            Console.WriteLine("Color of ball is " + a.GetColor());
+            foreach (var i in items)
+            {
+                i.SetAttributes("Rot", rnd.Next(1,100), 5);
+            }
 
         }
     }
