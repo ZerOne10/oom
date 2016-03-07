@@ -10,23 +10,24 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            var items = new IBall[]
+            var items = new IItem[]
             {
-                new Ball(10),
-                new Ball(20),
-                new Ball(30),
-                new Ball(40),
-                new Fussball(10),
-                new Fussball(20),
-                new Fussball(30),
-                new Fussball(40)
+                new Fussball("Adidas Z100", 30, Currency.EUR),
+                new Fussball("Nike Tiempo 2", 40, Currency.EUR),
+                new Fussball("Adidas E200", 45, Currency.EUR),
+                new Fussball("Puma AD100", 35, Currency.EUR),
+                new Ball("Ball1"),
+                new Ball("Teurer Ball", 1000, Currency.EUR),
+                new Ball("Normaler Ball", 10, Currency.EUR),
             };
-            Random rnd = new Random();
 
-            foreach (var i in items)
+            foreach (var x in items)
             {
-                i.SetAttributes("Rot", rnd.Next(1,100), 5);
+                Console.WriteLine("test");
+                //Console.WriteLine($"{x.Description.Truncate(50),-50} {x.Price.ConvertTo(currency).Amount,8:0.00} {currency}");
             }
+
+            //SerializationExample.Run(items);
 
         }
     }

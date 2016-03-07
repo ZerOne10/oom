@@ -6,34 +6,35 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Fussball : IBall
+    class Fussball : IItem
     {
 
-        public string m_Color { get; set; }
-        public int m_Preis { get; set; }
+        public string m_description { get; set; }
+        public Price m_price { get; set; }
         public int m_Size { get; set; }
 
         public Fussball()
         {
-            m_Preis = 1;
+            m_description = "";
+            m_price = new Price(0, Currency.EUR);
             m_Size = 4;
         }
-        public Fussball(int preis)
+        public Fussball(string description,decimal amount, Currency ccy)
         {
-            m_Preis = preis;
+            m_description = description;
+            m_price = new Price(amount, ccy);
             m_Size = 4;
         }
 
         #region IBall Implementation
-        public string Color => m_Color;
-        public int Preis => m_Preis;
-        public int Size => m_Size;
+        public string Description => m_description;
+        public Price Price => m_price;
 
-        public void SetAttributes(string color, int preis, int size)
+        public void SetAttributes(string description, decimal amount, Currency ccy, int size)
         {
-            m_Color = color;
-            m_Preis = preis;
-            m_Size = 4;
+            m_description = description;
+            m_price = new Price(amount, ccy);
+            m_Size = size;
             Console.WriteLine("Attribute überschrieben - Größe ist fixiert!");
         }
         #endregion

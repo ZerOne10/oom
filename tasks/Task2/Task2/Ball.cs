@@ -6,34 +6,36 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Ball : IBall
+    class Ball : IItem
     {
 
-        public string m_Color { get; set; }
-        public int m_Preis { get; set; }
-        public int m_Size { get; set; }
+        public string m_description { get; set; }
+        public Price m_price { get; set; }
 
         public Ball()
         {
-            m_Preis = 1;
-            m_Size = 5;
+            m_description = "";
+            m_price = new Price(1, Currency.EUR);
         }
-        public Ball(int preis)
+        public Ball(string description)
         {
-            m_Preis = preis;
-            m_Size = 1;
+            m_description = description;
+            m_price = new Price(1, Currency.EUR);
+        }
+        public Ball(string description, decimal amount, Currency ccy)
+        {
+            m_description = description;
+            m_price = new Price(amount, ccy);
         }
 
         #region IBall Implementation
-        public string Color => m_Color;
-        public int Preis => m_Preis;
-        public int Size => m_Size;
+        public string Description => m_description;
+        public Price Price => m_price;
 
-        public void SetAttributes(string color, int preis, int size)
+        public void SetAttributes(string description, decimal amount, Currency ccy)
         {
-            m_Color = color;
-            m_Preis = preis;
-            m_Size = size;
+            m_description = description;
+            m_price = new Price(amount, ccy);
             Console.WriteLine("Attribute überschrieben!");
         }
         #endregion
