@@ -9,9 +9,17 @@ namespace Task2
     class Fussball : IItem
     {
 
-        public string m_description { get; set; }
-        public Price m_price { get; set; }
-        public int m_Size { get; set; }
+        private string m_description;
+        private Price m_price;
+        private int m_Size;
+
+        public int Size
+        {
+            get
+            {
+                return m_Size;
+            }
+        }
 
         public Fussball()
         {

@@ -9,8 +9,8 @@ namespace Task2
     class Ball : IItem
     {
 
-        public string m_description { get; set; }
-        public Price m_price { get; set; }
+        private string m_description;
+        private Price m_price;
 
         public Ball()
         {
