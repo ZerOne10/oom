@@ -24,6 +24,9 @@ namespace Task2
         }
         public Ball(string description, decimal amount, Currency ccy)
         {
+            if (string.IsNullOrWhiteSpace(description)) throw new ArgumentException("Description must not be empty.", nameof(description));
+            if (amount < 0) throw new ArgumentException("Price must not be negative.", nameof(amount));
+
             m_description = description;
             m_price = new Price(amount, ccy);
         }
@@ -34,6 +37,9 @@ namespace Task2
 
         public void SetAttributes(string description, decimal amount, Currency ccy)
         {
+            if (string.IsNullOrWhiteSpace(description)) throw new ArgumentException("Description must not be empty.", nameof(description));
+            if (amount < 0) throw new ArgumentException("Price must not be negative.", nameof(amount));
+
             m_description = description;
             m_price = new Price(amount, ccy);
             Console.WriteLine("Attribute überschrieben!");

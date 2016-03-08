@@ -21,13 +21,13 @@ namespace Task2
                 new Ball("Normaler Ball", 10, Currency.EUR),
             };
 
+            var currency = Currency.USD;
             foreach (var x in items)
             {
-                Console.WriteLine("test");
-                //Console.WriteLine($"{x.Description.Truncate(50),-50} {x.Price.ConvertTo(currency).Amount,8:0.00} {currency}");
+                Console.WriteLine($"{x.Description.Truncate(50),-50} {x.Price.ConvertTo(currency).Amount,8:0.00} {currency}");
             }
 
-            //SerializationExample.Run(items);
+            SerializationExample.Run(items);
 
         }
     }
