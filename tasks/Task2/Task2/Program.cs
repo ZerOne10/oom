@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using System.Threading;
 
 namespace Task2
 {
@@ -23,10 +26,12 @@ namespace Task2
 
             foreach (var x in items)
             {
+                Thread.Sleep(250);
                 Console.WriteLine("Price of {0} is {1} {2}", x.Description, x.Price.Unit, x.Price.Amount);
             }
 
             SerializationExample.Run(items);
+            PushExampleWithSubject.Run(items);
 
         }
     }
